@@ -10,9 +10,19 @@ $ npm install --save node-weixin-settings
 ## Usage
 
 ```js
-var nodeWeixinSettings = require('node-weixin-settings');
+var Settings = require('node-weixin-settings');
+var nodeWeixinSettings = new Settings();
 
-nodeWeixinSettings('Rainbow');
+nodeWeixinSettings.registerSet(function() {
+});
+nodeWeixinSettings.registerGet(function() {
+});
+
+nodeWeixinSettings.get(req, key);
+nodeWeixinSettings.set(req, key, value);
+
+nodeWeixinSettings.all(req);
+
 ```
 ## License
 
