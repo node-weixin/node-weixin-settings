@@ -3,8 +3,7 @@ import nodeWeixinSettings from '../lib';
 import nodeWeixinSettings1 from '../lib';
 
 describe('node-weixin-settings', function () {
-
-  it('should get what is set!', function () {
+  it('should be equal before !', function () {
     assert.equal(true, nodeWeixinSettings === nodeWeixinSettings1);
   });
 
@@ -75,5 +74,9 @@ describe('node-weixin-settings', function () {
     assert.equal(false, nodeWeixinSettings.registerSet('MySet'));
     assert.equal(false, nodeWeixinSettings.registerAll('MyAll'));
 
+  });
+
+  it('should be equal after!', function () {
+    assert.equal(true, nodeWeixinSettings === nodeWeixinSettings1);
   });
 });
