@@ -1,10 +1,9 @@
 import assert from 'assert';
-import Settings from '../lib';
+import nodeWeixinSettings from '../lib';
 import _ from 'lodash';
 
 describe('node-weixin-settings', function () {
 
-  var nodeWeixinSettings = new Settings();
   var req = {
     session: {
       id: 1
