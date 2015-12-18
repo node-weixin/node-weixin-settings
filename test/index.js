@@ -1,7 +1,12 @@
 import assert from 'assert';
 import nodeWeixinSettings from '../lib';
+import nodeWeixinSettings1 from '../lib';
 
 describe('node-weixin-settings', function () {
+
+  it('should get what is set!', function () {
+    assert.equal(true, nodeWeixinSettings === nodeWeixinSettings1);
+  });
 
   it('should get what is set!', function () {
 
