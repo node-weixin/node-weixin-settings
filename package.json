@@ -1,6 +1,6 @@
 {
   "name": "node-weixin-settings",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "node weixin settings",
   "homepage": "www.node-weixin.com",
   "author": {
@@ -36,5 +36,8 @@
     "prepublish": "gulp prepublish",
     "test": "gulp"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.1.2"
+  }
 }
