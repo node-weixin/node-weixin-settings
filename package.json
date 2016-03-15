@@ -1,42 +1,43 @@
 {
   "name": "node-weixin-settings",
-  "version": "0.1.0",
-  "description": "node weixin settings",
-  "homepage": "www.node-weixin.com",
+  "version": "0.2.0",
+  "description": "",
+  "homepage": "",
   "author": {
-    "name": "node-weixin",
+    "name": "calidion",
     "email": "calidion@gmail.com",
-    "url": "blog.3gcnbeta.com"
+    "url": "calidion.github.io"
   },
   "files": [
-    "dist"
+    "lib"
   ],
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "keywords": [
-    "node",
-    "weixin",
-    "settings"
+    ""
   ],
-  "repository": "node-weixin/node-weixin-settings",
   "devDependencies": {
-    "gulp": "^3.6.0",
+    "eslint-config-xo-space": "^0.7.0",
+    "gulp": "^3.9.0",
     "gulp-eslint": "^1.0.0",
     "gulp-exclude-gitignore": "^1.0.0",
-    "gulp-istanbul": "^0.9.0",
+    "gulp-istanbul": "^0.10.3",
     "gulp-mocha": "^2.0.0",
     "gulp-plumber": "^1.0.0",
     "gulp-nsp": "^2.1.0",
-    "gulp-coveralls": "^0.1.0",
-    "gulp-babel": "^5.1.0",
-    "del": "^2.0.2",
-    "babel-core": "^5.5.0",
-    "isparta": "^3.0.3"
+    "gulp-coveralls": "^0.1.0"
   },
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "mocha": true
+    }
+  },
+  "repository": "node-weixin/node-weixin-settings",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "colors": "^1.1.2"
   }

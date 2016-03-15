@@ -1,4 +1,5 @@
 # node-weixin-settings [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+
 > node weixin settings
 
 ## Installation
@@ -18,27 +19,28 @@ $ npm install --save node-weixin-settings
 ```js
 var nodeWeixinSettings = require('node-weixin-settings');
 
-nodeWeixinSettings.registerSet(function() {
+nodeWeixinSettings.registerSet(function () {
 });
-nodeWeixinSettings.registerGet(function() {
+nodeWeixinSettings.registerGet(function () {
 });
 
-nodeWeixinSettings.get(id, key, function(data) {
+nodeWeixinSettings.get(id, key, function (data) {
 //data is the value you needed
 });
-nodeWeixinSettings.set(id, key, value, function() {
+nodeWeixinSettings.set(id, key, value, function () {
 //end of set
 
 });
 
-nodeWeixinSettings.all(id, function(data) {
+nodeWeixinSettings.all(id, function (data) {
 //data is the value you needed
 });
 
 ```
+
 ## License
 
-MIT © [node-weixin](blog.3gcnbeta.com)
+Apache-2.0 © [calidion](calidion.github.io)
 
 
 [npm-image]: https://badge.fury.io/js/node-weixin-settings.svg

@@ -1,55 +1,54 @@
-import assert from 'assert';
-import nodeWeixinSettings from '../lib';
-import nodeWeixinSettings1 from '../lib';
-import async from 'async';
+var assert = require('assert');
+var nodeWeixinSettings = require('../lib');
+var nodeWeixinSettings1 = require('../lib');
+var async = require('async');
 
-describe('node-weixin-settings', function() {
-  it('should be equal before !', function() {
+describe('node-weixin-settings', function () {
+  it('should be equal before !', function () {
     assert.equal(true, nodeWeixinSettings === nodeWeixinSettings1);
   });
 
-  it('should get what is set!', function(done) {
-
+  it('should get what is set!', function (done) {
     var set = {
       state: 'STATE',
       scope: 0
     };
     async.series([
-      function(cb) {
-        nodeWeixinSettings.set(1, 'oauth', set, function() {
+      function (cb) {
+        nodeWeixinSettings.set(1, 'oauth', set, function () {
           cb(null);
         });
       },
-      function(cb) {
-        nodeWeixinSettings.get(1, 'oauth', function(data) {
+      function (cb) {
+        nodeWeixinSettings.get(1, 'oauth', function (data) {
           assert.deepEqual(set, data);
           cb(null);
         });
       },
-      function(cb) {
-        nodeWeixinSettings.get(1, 'oauth1', function(data) {
+      function (cb) {
+        nodeWeixinSettings.get(1, 'oauth1', function (data) {
           assert.equal(true, data === null);
           cb(null);
         });
       },
-      function(cb) {
-        nodeWeixinSettings.all(1, function(data) {
+      function (cb) {
+        nodeWeixinSettings.all(1, function (data) {
           assert.equal(true, data.oauth === set);
           cb(null);
         });
       },
-      function(cb) {
-        nodeWeixinSettings.all(2, function(data) {
+      function (cb) {
+        nodeWeixinSettings.all(2, function (data) {
           assert.equal(true, data.oauth === undefined);
           cb(null);
         });
       }
-    ], function() {
+    ], function () {
       done();
     });
   });
 
-  it('should register get, set!', function(done) {
+  it('should register get, set!', function (done) {
     var insideGet = false;
     var insideSet = false;
     var insideAll = false;
@@ -58,7 +57,6 @@ describe('node-weixin-settings', function() {
       state: 'STATE',
       scope: 0
     };
-
 
     function MyGet(id, key, cb) {
       insideGet = true;
@@ -87,31 +85,30 @@ describe('node-weixin-settings', function() {
     }
 
     async.series([
-      function(cb) {
+      function (cb) {
         assert.equal(true, nodeWeixinSettings.registerSet(MySet));
 
-        nodeWeixinSettings.set(1, 'oauth', set, function() {
+        nodeWeixinSettings.set(1, 'oauth', set, function () {
           assert.equal(true, insideSet);
           cb(null);
         });
       },
-      function(cb) {
+      function (cb) {
         assert.equal(true, nodeWeixinSettings.registerGet(MyGet));
-        nodeWeixinSettings.get(1, 'oauth', function(oauth) {
+        nodeWeixinSettings.get(1, 'oauth', function (oauth) {
           assert.equal(true, insideGet);
           assert.deepEqual(set, oauth);
           cb();
         });
-
       },
-      function(cb) {
+      function (cb) {
         assert.equal(true, nodeWeixinSettings.registerAll(MyAll));
-        nodeWeixinSettings.all(1, function() {
+        nodeWeixinSettings.all(1, function () {
           assert.equal(true, insideAll);
           cb();
         });
       }
-    ], function() {
+    ], function () {
       assert.equal(false, nodeWeixinSettings.registerGet('MyGet'));
       assert.equal(false, nodeWeixinSettings.registerSet('MySet'));
       assert.equal(false, nodeWeixinSettings.registerAll('MyAll'));
@@ -119,7 +116,7 @@ describe('node-weixin-settings', function() {
     });
   });
 
-  it('should be equal after!', function() {
+  it('should be equal after!', function () {
     assert.equal(true, nodeWeixinSettings === nodeWeixinSettings1);
   });
 });
