@@ -119,4 +119,8 @@ describe('node-weixin-settings', function () {
   it('should be equal after!', function () {
     assert.equal(true, nodeWeixinSettings === nodeWeixinSettings1);
   });
+
+  it('should be sessionizable', function () {
+    assert.equal(true, nodeWeixinSettings === nodeWeixinSettings.sessionizable({}, {}));
+  });
 });
